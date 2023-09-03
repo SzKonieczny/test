@@ -1,12 +1,12 @@
-import { fetchBreeds } from './cats-api';
-import { fetchCatByBreed } from './cats-api';
+import { fetchBreeds, fetchCatByBreed } from './cats-api';
 
 import SlimSelect from 'slim-select';
 import 'slim-select/dist/slimselect.css';
+import Notiflix from 'notiflix';
 
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { Loading } from 'notiflix/build/notiflix-loading-aio';
-import 'notiflix/dist/notiflix-3.2.6.min.css';
+// import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
+// import 'notiflix/dist/notiflix-3.2.6.min.css';
 
 const breedSelect = document.querySelector('.breed-select');
 const catInfo = document.querySelector('.cat-info');
@@ -35,15 +35,15 @@ fetchBreeds()
   })
   .catch(error => {
     console.log(error);
-    Loading.remove();
-    Notify.failure('Oops! Something went wrong! Try reloading the page!', {
+    Notiflix.Loading.remove();
+    Notiflix.failure('Oops! Something went wrong! Try reloading the page!', {
       timeout: 4000,
       fontSize: '20px',
     });
   });
 
 breedSelect.addEventListener('change', e => {
-  Loading.circle('Loading data, please wait...');
+  Notiflix.Loading.circle('Loading data, please wait...');
   const breedId = e.target.value;
 
   fetchCatByBreed(breedId)
@@ -54,18 +54,18 @@ breedSelect.addEventListener('change', e => {
     <div>
     <img src="${cat[0].url}" alt="${name}" width="400"/>
   </div>
-  <div class="pretty">
+  <div class="box">
     <h1>${name}</h1>
     <p>${description}</p>
     <p><b>Temperament:</b> ${temperament}</p>
   </div>`;
-      Loading.remove();
+      Notiflix.Loading.remove();
       catInfo.classList.remove('is-hidden');
     })
     .catch(error => {
       console.log(error);
-      Loading.remove();
-      Notify.failure('Oops! Something went wrong! Try reloading the page!', {
+      Notiflix.Loading.remove();
+      Notiflix.failure('Oops! Something went wrong! Try reloading the page!', {
         timeout: 4000,
         fontSize: '20px',
       });
