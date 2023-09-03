@@ -5,7 +5,7 @@ import SlimSelect from 'slim-select';
 import 'slim-select/dist/slimselect.css';
 
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-// import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import 'notiflix/dist/notiflix-3.2.6.min.css';
 
 const breedSelect = document.querySelector('.breed-select');
