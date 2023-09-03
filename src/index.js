@@ -1,5 +1,5 @@
-import { fetchBreeds } from './cat-api';
-import { fetchCatByBreed } from './cat-api';
+import { fetchBreeds } from './cats-api';
+import { fetchCatByBreed } from './cats-api';
 
 import SlimSelect from 'slim-select';
 import 'slim-select/dist/slimselect.css';
